@@ -108,20 +108,23 @@
   - Tests sirven como documentación viva del comportamiento esperado
 
 ## Fase 5: Mejoras Opcionales (Ir más lejos)
-- [ ] 20. Implementar paginación para endpoints con muchos datos
-  - Implementar paginación en GET /beers
-  - Implementar método HEAD para metadata
-  - Añadir parámetros de paginación (page, size, sort)
+- [x] 20. Implementar paginación para endpoints con muchos datos
+  - ✅ Paginación implementada en GET /beers con parámetro `paginated=true`
+  - ✅ Soporte para parámetros page, size, sort
+  - ✅ Respuesta con Page<BeerResponse> que incluye metadata de paginación
 
-- [ ] 21. Integrar Swagger/OpenAPI para documentación
-  - Añadir dependencia de Swagger/SpringDoc
-  - Configurar Swagger UI
-  - Añadir anotaciones de documentación a los endpoints
+- [x] 21. Integrar Swagger/OpenAPI para documentación
+  - ✅ SpringDoc OpenAPI 2.7.0 integrado
+  - ✅ Documentación disponible en `/swagger-ui.html`
+  - ✅ API docs disponible en `/api-docs`
+  - ✅ Todos los controladores documentados con anotaciones @Operation, @Tag, @ApiResponse
 
-- [ ] 22. Implementar subida de imágenes de cervezas
-  - Añadir endpoint para subir imágenes
-  - Configurar almacenamiento de imágenes
-  - Asociar imágenes con cervezas
+- [x] 22. Implementar subida de imágenes de cervezas
+  - ✅ Endpoint POST /beer/{id}/image implementado
+  - ✅ Validación de tipos de archivo (jpg, jpeg, png, gif, webp)
+  - ✅ Almacenamiento seguro con nombres únicos
+  - ✅ Tamaño máximo de 10MB configurado
+  - ✅ Gestión automática de eliminación de imágenes anteriores
 
 ---
 

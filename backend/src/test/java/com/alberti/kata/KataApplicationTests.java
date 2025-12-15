@@ -7,6 +7,7 @@ import com.alberti.kata.controller.StyleController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.ActiveProfiles;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -37,7 +38,7 @@ class KataApplicationTests {
 
 	@Test
 	void testBeerEndpointsExist() {
-		assertThat(beerController.getAllBeers()).isNotNull();
+		assertThat(beerController.getAllBeers(PageRequest.of(0, 10), null)).isNotNull();
 	}
 
 	@Test

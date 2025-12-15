@@ -8,8 +8,11 @@ import com.alberti.kata.exception.ResourceNotFoundException;
 import com.alberti.kata.mapper.BeerMapper;
 import com.alberti.kata.repository.BeerRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -20,6 +23,7 @@ public class BeerServiceImpl implements BeerService {
 
     private final BeerRepository beerRepository;
     private final BeerMapper beerMapper;
+    private final FileStorageService fileStorageService;
 
     @Override
     @Transactional(readOnly = true)
@@ -28,6 +32,13 @@ public class BeerServiceImpl implements BeerService {
                 .stream()
                 .map(beerMapper::toResponse)
                 .toList();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<BeerResponse> findAll(Pageable pageable) {
+        return beerRepository.findAll(pageable)
+                .map(beerMapper::toResponse);
     }
 
     @Override
@@ -84,5 +95,24 @@ public class BeerServiceImpl implements BeerService {
             throw new ResourceNotFoundException("Cerveza no encontrada con ID: " + id);
         }
         beerRepository.deleteById(id);
+    }
+
+    @Override
+    @Transactional
+    public BeerResponse uploadImage(Integer id, MultipartFile file) {
+        Beer beer = beerRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Cerveza no encontrada con ID: " + id));
+        
+        // Eliminar la imagen anterior si existe
+        if (beer.getFilepath() != null && !beer.getFilepath().isBlank()) {
+            fileStorageService.deleteFile(beer.getFilepath());
+        }
+        
+        // Guardar la nueva imagen
+        String filename = fileStorageService.storeFile(file, id);
+        beer.setFilepath(filename);
+        beer.setLastMod(LocalDateTime.now());
+        
+        return beerMapper.toResponse(beerRepository.save(beer));
     }
 }
