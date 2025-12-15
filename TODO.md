@@ -20,36 +20,36 @@
   - Crear `StyleRepository` (extends JpaRepository)
 
 ## Fase 2: CRUD Completo de Beer
-- [ ] 4. Implementar el servicio para Beer (lógica de negocio)
+- [x] 4. Implementar el servicio para Beer (lógica de negocio)
   - Crear interfaz `BeerService`
   - Crear implementación `BeerServiceImpl`
   - Implementar métodos de negocio (findAll, findById, save, update, delete)
 
-- [ ] 5. GET /beers - Listar todas las cervezas
+- [x] 5. GET /beers - Listar todas las cervezas
   - Crear `BeerController`
   - Implementar endpoint GET `/beers`
   - Retornar lista completa de cervezas
 
-- [ ] 6. GET /beer/{id} - Obtener una cerveza por ID
+- [x] 6. GET /beer/{id} - Obtener una cerveza por ID
   - Implementar endpoint GET `/beer/{id}`
   - Manejar caso de cerveza no encontrada (404)
 
-- [ ] 7. POST /beer - Crear una nueva cerveza
+- [x] 7. POST /beer - Crear una nueva cerveza
   - Implementar endpoint POST `/beer`
   - Validar datos de entrada
   - Retornar cerveza creada con código 201
 
-- [ ] 8. PUT /beer/{id} - Actualizar una cerveza completa
+- [x] 8. PUT /beer/{id} - Actualizar una cerveza completa
   - Implementar endpoint PUT `/beer/{id}`
   - Actualizar todos los campos de la cerveza
   - Manejar caso de cerveza no encontrada
 
-- [ ] 9. PATCH /beer/{id} - Actualizar parcialmente una cerveza
+- [x] 9. PATCH /beer/{id} - Actualizar parcialmente una cerveza
   - Implementar endpoint PATCH `/beer/{id}`
   - Actualizar solo los campos proporcionados
   - Mantener valores existentes en campos no especificados
 
-- [ ] 10. DELETE /beer/{id} - Eliminar una cerveza
+- [x] 10. DELETE /beer/{id} - Eliminar una cerveza
   - Implementar endpoint DELETE `/beer/{id}`
   - Eliminar cerveza de la base de datos
   - Retornar código 204 (No Content)
