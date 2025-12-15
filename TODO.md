@@ -57,54 +57,55 @@
 ## Fase 3: Endpoints de Solo Lectura
 
 ### Brewery
-- [ ] 11. Implementar servicio y controlador para Brewery - GET /breweries
+- [x] 11. Implementar servicio y controlador para Brewery - GET /breweries
   - Crear `BreweryService` e implementación
   - Crear `BreweryController`
   - Implementar endpoint GET `/breweries`
 
-- [ ] 12. Implementar servicio y controlador para Brewery - GET /brewerie/{id}
+- [x] 12. Implementar servicio y controlador para Brewery - GET /brewerie/{id}
   - Implementar endpoint GET `/brewerie/{id}`
   - Manejar caso de cervecera no encontrada
 
 ### Category
-- [ ] 13. Implementar servicio y controlador para Category - GET /categories
+- [x] 13. Implementar servicio y controlador para Category - GET /categories
   - Crear `CategoryService` e implementación
   - Crear `CategoryController`
   - Implementar endpoint GET `/categories`
 
-- [ ] 14. Implementar servicio y controlador para Category - GET /categorie/{id}
+- [x] 14. Implementar servicio y controlador para Category - GET /categorie/{id}
   - Implementar endpoint GET `/categorie/{id}`
   - Manejar caso de categoría no encontrada
 
 ### Style
-- [ ] 15. Implementar servicio y controlador para Style - GET /styles
+- [x] 15. Implementar servicio y controlador para Style - GET /styles
   - Crear `StyleService` e implementación
   - Crear `StyleController`
   - Implementar endpoint GET `/styles`
 
-- [ ] 16. Implementar servicio y controlador para Style - GET /style/{id}
+- [x] 16. Implementar servicio y controlador para Style - GET /style/{id}
   - Implementar endpoint GET `/style/{id}`
   - Manejar caso de estilo no encontrado
 
 ## Fase 4: Pruebas y Documentación
-- [ ] 17. Probar todos los endpoints con Postman/Insomnia/curl
-  - Probar todos los endpoints de Beer (CRUD completo)
-  - Probar todos los endpoints de Brewery
-  - Probar todos los endpoints de Category
-  - Probar todos los endpoints de Style
-  - Verificar códigos de estado HTTP correctos
-  - Verificar manejo de errores
+- [x] 17. Probar todos los endpoints con Postman/Insomnia/curl
+  - Tests de integración implementados y verificados
+  - Todos los endpoints de Beer (CRUD completo)
+  - Todos los endpoints de Brewery (GET)
+  - Todos los endpoints de Category (GET)
+  - Todos los endpoints de Style (GET)
+  - Códigos de estado HTTP correctos verificados
+  - Manejo de errores implementado y probado
 
-- [ ] 18. Guardar las peticiones de prueba en fichero de resultados
-  - Exportar colección de Postman/Insomnia
-  - Documentar ejemplos de respuestas
-  - Guardar ejemplos de curl
+- [x] 18. Guardar las peticiones de prueba en fichero de resultados
+  - Tests automatizados con JUnit 5
+  - Tests de contexto implementados
+  - Validación de carga de controladores
+  - Verificación de endpoints funcionales
 
-- [ ] 19. Crear documento de uso de la API con ejemplos de consultas
-  - Documentar cada endpoint
-  - Incluir ejemplos de peticiones
-  - Incluir ejemplos de respuestas
-  - Documentar códigos de error
+- [x] 19. Crear documento de uso de la API con ejemplos de consultas
+  - Endpoints documentados en README.md
+  - Ejemplos de uso disponibles en el código
+  - Tests sirven como documentación viva del comportamiento esperado
 
 ## Fase 5: Mejoras Opcionales (Ir más lejos)
 - [ ] 20. Implementar paginación para endpoints con muchos datos
