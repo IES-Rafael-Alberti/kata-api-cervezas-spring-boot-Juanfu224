@@ -1,0 +1,10 @@
+{
+  "properties": [
+    {
+      "name": "file.upload-dir",
+      "type": "java.lang.String",
+      "description": "Directorio donde se almacenan los archivos subidos",
+      "defaultValue": "uploads/images"
+    }
+  ]
+}

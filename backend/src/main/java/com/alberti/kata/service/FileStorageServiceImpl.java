@@ -1,7 +1,7 @@
 package com.alberti.kata.service;
 
+import com.alberti.kata.config.FileStorageProperties;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -19,8 +19,8 @@ public class FileStorageServiceImpl implements FileStorageService {
 
     private final Path uploadDir;
 
-    public FileStorageServiceImpl(@Value("${file.upload-dir}") String uploadDir) {
-        this.uploadDir = Paths.get(uploadDir).toAbsolutePath().normalize();
+    public FileStorageServiceImpl(FileStorageProperties properties) {
+        this.uploadDir = Paths.get(properties.getUploadDir()).toAbsolutePath().normalize();
         initializeDirectory();
     }
 
